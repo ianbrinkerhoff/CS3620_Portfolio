@@ -1,0 +1,48 @@
+body {
+    display: block;
+    text-align: center;
+    background-color: WhiteSmoke;
+    }
+
+#top {
+    background-color: LightGray;
+    height: 60px;
+    font-size: 50px;
+    }
+
+#list {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    }
+
+li  {
+    font-size: 25px;
+    margin: 5px;
+    }
+
+p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    }
+
+#intro {
+    font-size: 20px;
+    }
+
+h1 {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+href {
+    text-weight: bold;
+}
+
+div {
+    margin-top: 5px;
+}

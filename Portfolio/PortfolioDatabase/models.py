@@ -8,6 +8,7 @@ class Hobby(models.Model):
 
     hobby_name = models.CharField(max_length=200)
     hobby_desc = models.CharField(max_length=200)
+    hobby_image = models.CharField(max_length=500, default="https://www.dreamstime.com/kids-character-various-objects-flat-design-style-isolated-diversity-children-portrait-their-hobbies-vector-cartoon-image178264673")
 
 
 class Portfolio(models.Model):
@@ -17,4 +18,5 @@ class Portfolio(models.Model):
 
     portfolio_name = models.CharField(max_length=200)
     portfolio_desc = models.CharField(max_length=200)
+    portfolio_image = models.CharField(max_length=500, default="https://www.edmundsgovtech.com/wp-content/uploads/2020/01/default-picture_0_0.png")
 

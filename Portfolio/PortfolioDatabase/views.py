@@ -2,31 +2,46 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from . models import Hobby
 from . models import Portfolio
+from django.template import loader
 
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>Portfolio Home</h1>'
-                        '<p>Hello! My name is Ian Brinkerhoff, '
-                        'I am a senior in the CS program at Weber State. '
-                        'I work full time as a Unit Training Manager in an Air Force '
-                        'Unit on base. I am married to a wonderful nurse named '
-                        'Baylee, and I have been living in Mississippi on an Air Force '
-                        'base for the last 2 months and I officially come home to Utah '
-                        'this week!</p>')
+    return render(request, 'portfolio/home.html')
 
 
 def hobbies(request):
     hobby_list = Hobby.objects.all()
-    return HttpResponse(hobby_list)
+    context = {
+        'hobby_list': hobby_list,
+    }
+    return render(request, 'portfolio/hobby.html', context)
 
 
 def portfolio(request):
     portfolio_list = Portfolio.objects.all()
-    return HttpResponse(portfolio_list)
+    context = {
+        'portfolio_list': portfolio_list,
+    }
+    return render(request, 'portfolio/portfolio.html', context)
 
 
 def contact(request):
-    return HttpResponse('<h1>Contact Information:</h1>'
-                        '<p>email: ianbrinkerhoff@mail.weber.edu<p>')
+    return render(request, 'portfolio/contact.html')
+
+
+def p_detail(request, p_id):
+    portfolio = Portfolio.objects.get(pk=p_id)
+    context = {
+        'portfolio': portfolio,
+    }
+    return render(request, 'portfolio/p_detail.html', context)
+
+
+def h_detail(request, h_id):
+    hobby = Hobby.objects.get(pk=h_id)
+    context = {
+        'hobby': hobby,
+    }
+    return render(request, 'portfolio/h_detail.html', context)
 
