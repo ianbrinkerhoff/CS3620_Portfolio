@@ -1,0 +1,8 @@
+
+{% block body %}
+<form method="POST" class="row justify-content-center">
+    {% csrf_token %}
+    <h2>Are you sure you want to delete {{ portfolio.portfolio_name }}</h2>
+    <button type="submit">Confirm</button>
+</form>
+{% endblock %}

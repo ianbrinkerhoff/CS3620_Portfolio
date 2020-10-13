@@ -22,6 +22,22 @@
         <li><a href="https://github.com/ianbrinkerhoff" target="_blank">Github Page!</a></li>
     </ul>
 </div>
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+    <div class="row justify-content-center">
+           <h2 style="margin-top:50px; margin-bottom:20px">Enter Contact Information:</h2>
+    </div>
+   <div style="margin-bottom:20px" class="row justify-content-center">
+            {{ form }}
+   </div>
+    <div class="row justify-content-center">
+           <button type="submit">Submit</button>
+    </div>
+    </form>
+</div>
+
 {% endblock %}
 </body>
 </html>

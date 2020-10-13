@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Hobby(models.Model):
 
@@ -19,4 +20,13 @@ class Portfolio(models.Model):
     portfolio_name = models.CharField(max_length=200)
     portfolio_desc = models.CharField(max_length=200)
     portfolio_image = models.CharField(max_length=500, default="https://www.edmundsgovtech.com/wp-content/uploads/2020/01/default-picture_0_0.png")
+
+
+class Contact(models.Model):
+    def __str__(self):
+        return self.contact_name + ": " + self.contact_email + " "
+
+    contact_name = models.CharField(max_length=200)
+    contact_email = models.CharField(max_length=200)
+    contact_message = models.CharField(max_length=1000)
 

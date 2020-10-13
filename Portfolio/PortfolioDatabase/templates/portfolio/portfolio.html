@@ -11,14 +11,22 @@
 </head>
 <body>
 {% block body %}
-<div id="top">
-    <h1>Portfolio</h1>
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="{% url 'PortfolioDatabase:portfolio' %}" class="navbar-brand">Portfolio</a>
+        <div class="navbar">
+            {% if user.is_authenticated %}
+                <a class="btn btn-success" href="{% url 'PortfolioDatabase:add_portfolio'%}" class="nav-item nav-link">Add Portfolio</a>
+            {% endif %}
+        </div>
+    </nav>
 </div>
+
 
 
 <div id="list">
     {% for portfolio in portfolio_list %}
-    <div class="row">
+    <div class="row" style="border:2px solid black">
         <div class="col-md-3 offset-md-2">
             <img class="card" height="150px" src="{{portfolio.portfolio_image}}"/>
         </div>
@@ -27,7 +35,15 @@
             <h4>{{portfolio.portfolio_desc}}</h4>
         </div>
         <div class="col-md-2">
-            <a href="{% url 'PortfolioDatabase:p_detail' portfolio.id %}" class="btn btn-success">Details</a>
+            <div>
+                <a href="{% url 'PortfolioDatabase:p_detail' portfolio.id %}" class="btn btn-success">Details</a>
+            </div>
+            <div >
+                {% if user.is_authenticated %}
+                    <a href="{% url 'PortfolioDatabase:update_portfolio' portfolio.id %}" class="btn btn-dark">Edit</a>
+                    <a href="{% url 'PortfolioDatabase:delete_portfolio' portfolio.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
         </div>
     </div>
     {% endfor %}
